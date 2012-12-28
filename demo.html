@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>kaba's demo</title>
+		<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.9.2.custom.css" />
+		<link rel="stylesheet" type="text/css" href="kaba.css" />
+		<script type="text/javascript" src="jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.9.2.js"></script>
+		<script type="text/javascript" src="kaba.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){  
+	          KABA.enableConsole();
+
+	          var loggerInterva ;
+
+	          $("#btn").click(function(){
+	          		KABA.loggerPanel.toggle();
+	          });
+
+	          $("#btn2").click(function(){
+	          		loggerInterva = window.setInterval(function(){
+	          			KABA.log(new Date().getTime());
+	          		},1000);
+	          		
+	          });
+	          $("#btn3").click(function(){
+	          		window.clearInterval(loggerInterva);
+	          		
+	          });	          
+	    });  
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.log(1);
+		</script>
+		<input type="button" id="btn" value="show logger"/>
+		<input type="button" id="btn2" value="start logger"/>
+		<input type="button" id="btn3" value="end logger"/>
+		
+	</body>
+</html>

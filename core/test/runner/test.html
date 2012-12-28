@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Refactored date examples</title>
+ 
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css" />
+    <script src="http://code.jquery.com/qunit/qunit-git.js"></script>
+    <script type="text/javascript" src="../../../jquery/jquery-1.8.3.js"></script>
+    <script src="../../kaba.js"></script>
+ 
+    <script>
+    test("kaba namespace function", function(assert) {
+        
+        equal(KABA.version, "0.0.1");
+
+        KABA.namespace("testns");
+        
+        equal(testns._kaba_namespace,"testns");
+
+        KABA.namespace("com.minshenglife");
+
+        equal(com._kaba_namespace,"com");
+
+        equal(com.minshenglife._kaba_namespace,"com.minshenglife");   
+
+        com.foo = function(){
+            return "foo";
+        };  
+
+        com.minshenglife.bar = function(){
+            return "bar";
+        };
+
+        assert.equal(com.foo(), "foo", "foo");
+
+        KABA.namespace("com.minshenglife.js");
+
+
+
+
+    });
+    </script>
+</head>
+<body>
+    <div id="qunit"></div>
+</body>
+</html>
