@@ -14,34 +14,17 @@
 
 
 	_KABA.namespace = function(ns){
-		namespace: function () {
-            var args = S.makeArray(arguments),
+            var 
                 l = args.length,
                 o = null, i, j, p,
-                global = (args[l - 1] === TRUE && l--);
-
-            for (i = 0; i < l; i++) {
-                p = (EMPTY + args[i]).split('.');
-                o = global ? host : this;
+                host = window;
+                p = ns.split('.');
                 for (j = (host[p[0]] === o) ? 1 : 0; j < p.length; ++j) {
                     o = o[p[j]] = o[p[j]] || { };
                 }
-            }
             return o;
-        }
 	};
 
-
-
-
-
-	function buildOneNamespace(ns){
-		ns = ns || "";
-		if(!!ns && "string" == typeof ns){
-			var _namespace = {_kaba_namespace:ns};
-			window[ns] = _namespace;
-		}
-	}
 
 
 
